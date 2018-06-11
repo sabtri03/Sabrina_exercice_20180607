@@ -1,0 +1,19 @@
+{% extends 'image/layout.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block row_content %}
+    <div class="row">
+        {% for image in images %}
+            <div class="col-sm-6 col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{ image.url }}" alt="image" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ image.title }}</h5>
+                        <a href="{{ path('image_show', {'id': loop.index}) }}" class="card-link">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

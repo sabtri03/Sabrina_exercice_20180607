@@ -1,0 +1,36 @@
+{% extends 'news/layout.html.twig' %}
+
+{% block header_content %}<h1>{{ news.title }}</h1>{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="media">
+                    <img class="card-img-top" src="{{ news.imageUrl }}" alt="image" />
+            </div>
+            <div class="media-body">
+                {% if news.author is not null %}
+                    <div class="badge badge-info">
+                        {{ news.author.name }}
+                    </div>
+                {% endif %}
+                <p>{{ news.content }}</p>
+                <ul>
+                        {% for category in news.getCategories() %}
+                            <li>
+                                <div>
+                                    <a href="{{ path('category_show', {'id':category.id}) }}">
+                                        {{ category.name }}
+                                    </a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li>nobody yet!</li>
+                        {% endfor %}
+                </ul>
+                <a href="{{ path('news_remove', {'id':news.id}) }}" class="alert-danger">delete</a>
+                <a href="{{ path('news_edit', {'id':news.id}) }}" class="alert-info">edit</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

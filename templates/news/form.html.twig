@@ -1,0 +1,12 @@
+{% extends 'news/layout.html.twig' %}
+
+{% block row_content %}
+    <div class="form-group">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div>
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

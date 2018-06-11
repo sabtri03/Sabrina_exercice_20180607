@@ -1,0 +1,19 @@
+{% extends 'author/layout.html.twig' %}
+
+{% block title %}Author{% endblock %}
+
+{% block row_content %}
+    <div class="row">
+        {% for author in authors %}
+            <div class="col-sm-6 col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ author.name }}</h5>
+                        <p class="card-text">{{ author.biography | slice(0,100) }}(...)</p>
+                        <a href="{{ path('author_show', {'id': loop.index}) }}" class="card-link">Lire la suite</a>
+                     </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'category/layout.html.twig' %}
+
+{% block row_content %}
+    <div class="form-group">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div>
+            {{ form_label(form) }}
+            {{ form_widget(form) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

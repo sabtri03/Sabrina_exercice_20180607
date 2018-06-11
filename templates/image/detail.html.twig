@@ -1,0 +1,18 @@
+{% extends 'image/layout.html.twig' %}
+
+{% block header_content %}<h1>{{ image.title }}</h1>{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="media">
+                    <img class="card-img-top" src="{{ image.url }}" alt="image" />
+                {% if image.author is not null %}
+                    <div class="badge badge-info">
+                        {{ image.author.name }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'category/layout.html.twig' %}
+
+{% block header_content %}<h1>{{ category.name }}</h1>{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="media">
+                <ul>
+                    {% for news in category.news %}
+                        <li>
+
+                            <div class="badge badge-info">
+                                <a href="{{ path('news_show', {'id':news.id}) }}">{{ news.title }}</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>nobody yet!</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
